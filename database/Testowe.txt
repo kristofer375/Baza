@@ -1,10 +1,10 @@
 -- SQLite
-SELECT d.Nazwa, k.Numer_Koszulki, z.Nazwisko, z.Imię, p.Pozycja
+SELECT d.Nazwa, k.Numer_Koszulki, z.Nazwisko, z.Imie, p.Pozycja
 FROM Zawodnicy AS z
 LEFT JOIN Kadra AS k
 ON z.ID=k.ID_Zawodnicy
 LEFT JOIN Pozycje AS p
 ON p.ID=k.Pozycja
-LEFT JOIN Drużyny as d
-ON k.ID_Drużyny=d.ID
-GROUP BY d.ID, p.ID, k.Numer_Koszulki
+LEFT JOIN Druzyny as d
+ON k.ID_Druzyny=d.ID
+ORDER BY d.Nazwa, p.Pozycja <> "Bramkarz", k.Numer_Koszulki
