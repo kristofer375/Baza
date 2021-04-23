@@ -7,7 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ListBox x:Name="klubyListBox" HorizontalAlignment="Left" Height="232" Margin="222,101,0,0" VerticalAlignment="Top" Width="347"/>
+        <ListBox x:Name="ListBox" HorizontalAlignment="Left" Height="232" Margin="222,101,0,0" VerticalAlignment="Top" Width="347"/>
+        <Button x:Name="Dalej" Content="Dalej" HorizontalAlignment="Left" Margin="516,351,0,0" VerticalAlignment="Top" Width="138" Height="42" Click="Dalej_Click"/>
+        <Button x:Name="Wstecz" Content="Wstecz" HorizontalAlignment="Left" Margin="151,351,0,0" VerticalAlignment="Top" Width="138" Height="42" Click="Wstecz_Click" IsEnabled="False"/>
 
     </Grid>
 </Window>

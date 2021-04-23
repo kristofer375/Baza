@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Baza
 {
-    public class Klub
+    public class Druzyna
     {
         public int ID { get; set; }
+        public int ID_Kluby { get; set; }
         public string Nazwa { get; set; }
-        public string Ikona { get; set; }
-        public string Skrot { get; set; }
+        public string Liga { get; set; }
 
-        public string Kluby
+        public string Druzyny
         {
             get
             {
