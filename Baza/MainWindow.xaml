@@ -5,11 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Baza"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" ResizeMode="CanMinimize">
     <Grid>
-        <ListBox x:Name="ListBox" HorizontalAlignment="Left" Height="232" Margin="222,101,0,0" VerticalAlignment="Top" Width="347"/>
+        <ListBox x:Name="ListBox" Margin="241,60,241,109"/>
         <Button x:Name="Dalej" Content="Dalej" HorizontalAlignment="Left" Margin="516,351,0,0" VerticalAlignment="Top" Width="138" Height="42" Click="Dalej_Click"/>
         <Button x:Name="Wstecz" Content="Wstecz" HorizontalAlignment="Left" Margin="151,351,0,0" VerticalAlignment="Top" Width="138" Height="42" Click="Wstecz_Click" IsEnabled="False"/>
+        <ListBox x:Name="ListBox2" Margin="471,60,61,109" Visibility="Hidden"/>
+        <Button x:Name="Dodaj" Content="Dodaj" Margin="365,100,365,283" Visibility="Hidden" Click="Dodaj_Click"/>
+        <Button x:Name="Usun" Content="Usuń" Margin="365,255,365,128" Visibility="Hidden" Click="Usun_Click"/>
+        <Button x:Name="UsunWszystko" Content="Usuń Wszystko" Margin="350,312,350,71" Visibility="Hidden" Click="UsunWszystko_Click"/>
+        <CheckBox x:Name="Kapitan" Content="Kapitan" Margin="360,143,360,253" Visibility="Hidden"/>
+        <CheckBox x:Name="Rezerwa" Content="Rezerwowy" Margin="350,163,350,218" Visibility="Hidden"/>
 
     </Grid>
 </Window>

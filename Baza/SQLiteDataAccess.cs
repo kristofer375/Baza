@@ -41,7 +41,7 @@ namespace Baza
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<Test>($"select d.Nazwa, k.Numer_Koszulki, z.Nazwisko, z.Imie, p.Pozycja from Zawodnicy as z left join Kadra as k on z.ID=k.ID_Zawodnicy left join Pozycje as p on p.ID=k.Pozycja left join Druzyny as d on k.ID_Druzyny=d.ID where d.ID={ a } order by d.Nazwa, p.Pozycja <> 'Bramkarz', k.Numer_Koszulki", new DynamicParameters());
+                var output = cnn.Query<Test>($"select z.ID, d.Nazwa, k.Numer_Koszulki, z.Nazwisko, z.Imie, p.Pozycja from Zawodnicy as z left join Kadra as k on z.ID=k.ID_Zawodnicy left join Pozycje as p on p.ID=k.Pozycja left join Druzyny as d on k.ID_Druzyny=d.ID where d.ID={ a } order by z.Nazwisko, p.Pozycja <> 'Bramkarz', k.Numer_Koszulki", new DynamicParameters());
                 return output.ToList();
             }
         }
