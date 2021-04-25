@@ -22,10 +22,26 @@ namespace Baza
         public Składy()
         {
             InitializeComponent();
-
-            Pierwszy.Content = ((MainWindow)Application.Current.MainWindow).test2[0].Numer_Koszulki.ToString().PadLeft(4 - ((MainWindow)Application.Current.MainWindow).test2[0].Numer_Koszulki.ToString().Length, ' ') + ".";
-            Pierwszy.Content += "\n" + ((MainWindow)Application.Current.MainWindow).test2[1].Numer_Koszulki.ToString().PadLeft(4 - ((MainWindow)Application.Current.MainWindow).test2[1].Numer_Koszulki.ToString().Length, ' ') + ".";
-            Pierwszy.Content += "\n" + ((MainWindow)Application.Current.MainWindow).test2[2].Numer_Koszulki.ToString().PadLeft(4 - ((MainWindow)Application.Current.MainWindow).test2[2].Numer_Koszulki.ToString().Length, ' ') + ".";
+            Pierwszy.Content = "";
+            Rezerwa.Content = "";
+            foreach (Druzyna d in ((MainWindow)Application.Current.MainWindow).druzyny)
+            {
+                if (d.ID == ((MainWindow)Application.Current.MainWindow).pom_druzyna)
+                {
+                    NazwaDruzyny.Content = d.Nazwa;
+                    break;
+                }
+            }
+            foreach (Test t in ((MainWindow)Application.Current.MainWindow).test2)
+            {
+                if (t.Rezerwowy != "R")
+                    Pierwszy.Content += t.Numer_Koszulki.ToString().PadLeft(4 - t.Numer_Koszulki.ToString().Length, ' ') + $". { t.Nazwisko } { t.Imie } {t.Kapitan}\n"; 
+            }
+            foreach (Test t in ((MainWindow)Application.Current.MainWindow).test2)
+            {
+                if (t.Rezerwowy == "R")
+                    Rezerwa.Content += t.Numer_Koszulki.ToString().PadLeft(4 - t.Numer_Koszulki.ToString().Length, ' ') + $". { t.Nazwisko } { t.Imie } {t.Kapitan}\n";
+            }
         }
 
         private void Window_Closed(object sender, EventArgs e)

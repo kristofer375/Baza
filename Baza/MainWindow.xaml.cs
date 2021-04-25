@@ -22,11 +22,11 @@ namespace Baza
     {
         public Składy składy = null;
         List<Klub> kluby = new List<Klub>();
-        List<Druzyna> druzyny = new List<Druzyna>();
+        public List<Druzyna> druzyny = new List<Druzyna>();
         List<Test> test = new List<Test>();
         public List<Test> test2 = new List<Test>();
         int pom_klub;
-        int pom_druzyna;
+        public int pom_druzyna;
         public MainWindow()
         {
             InitializeComponent();
@@ -110,6 +110,8 @@ namespace Baza
                 Kapitan.Visibility = Visibility.Visible;
                 Rezerwa.Visibility = Visibility.Visible;
                 Aktualizuj.Visibility = Visibility.Visible;
+                tytul1.Visibility = Visibility.Visible;
+                tytul2.Visibility = Visibility.Visible;
                 pom_druzyna = Int32.Parse(ListBox.SelectedValue.ToString());
                 Wybor_Testowy();
             }
@@ -144,6 +146,8 @@ namespace Baza
                 Kapitan.Visibility = Visibility.Hidden;
                 Rezerwa.Visibility = Visibility.Hidden;
                 Aktualizuj.Visibility = Visibility.Hidden;
+                tytul1.Visibility = Visibility.Hidden;
+                tytul2.Visibility = Visibility.Hidden;
                 Wybor_Druzyny();
             }
         }

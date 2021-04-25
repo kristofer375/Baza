@@ -17,6 +17,8 @@
         <CheckBox x:Name="Kapitan" Content="Kapitan" Margin="360,143,360,253" Visibility="Hidden" Click="Kapitan_Click"/>
         <CheckBox x:Name="Rezerwa" Content="Rezerwowy" Margin="350,163,350,218" Visibility="Hidden" Click="Rezerwa_Click"/>
         <Button x:Name="Aktualizuj" Content="Aktualizuj" Margin="360,193,360,190" Visibility="Hidden" Click="Aktualizuj_Click"/>
+        <Label x:Name="tytul1" Content="Kandydaci do składu" Margin="61,23,471,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Visibility="Hidden"/>
+        <Label x:Name="tytul2" Content="Skład drużyny" Margin="471,23,61,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Visibility="Hidden"/>
 
     </Grid>
 </Window>
