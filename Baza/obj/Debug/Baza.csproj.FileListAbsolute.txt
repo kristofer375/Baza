@@ -20,3 +20,5 @@ C:\Users\Krzysztof\source\repos\Baza\Baza\obj\Debug\Baza.csproj.CoreCompileInput
 C:\Users\Krzysztof\source\repos\Baza\Baza\obj\Debug\Baza.csproj.CopyComplete
 C:\Users\Krzysztof\source\repos\Baza\Baza\obj\Debug\Baza.exe
 C:\Users\Krzysztof\source\repos\Baza\Baza\obj\Debug\Baza.pdb
+C:\Users\Krzysztof\source\repos\Baza\Baza\obj\Debug\Składy.g.cs
+C:\Users\Krzysztof\source\repos\Baza\Baza\obj\Debug\Składy.baml

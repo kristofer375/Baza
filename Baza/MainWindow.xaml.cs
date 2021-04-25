@@ -20,10 +20,11 @@ namespace Baza
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Składy składy = null;
         List<Klub> kluby = new List<Klub>();
         List<Druzyna> druzyny = new List<Druzyna>();
         List<Test> test = new List<Test>();
-        List<Test> test2 = new List<Test>();
+        public List<Test> test2 = new List<Test>();
         int pom_klub;
         int pom_druzyna;
         public MainWindow()
@@ -80,7 +81,7 @@ namespace Baza
 
             ListBox.ItemsSource = null;
             ListBox.ItemsSource = test;
-            ListBox.DisplayMemberPath = "Testowy";
+            ListBox.DisplayMemberPath = "Testowy1";
 
             LoadTest(pom_druzyna);
 
@@ -92,30 +93,30 @@ namespace Baza
         }
         private void Dalej_Click(object sender, RoutedEventArgs e)
         {
-            if (ListBox.SelectedIndex >= 0)
+            if (Title == "1/3 Wybór Klubu" && ListBox.SelectedIndex >= 0)
             {
                 Wstecz.IsEnabled = true;
-                if (Title == "1/3 Wybór Klubu")
-                {
-                    pom_klub = Int32.Parse(ListBox.SelectedValue.ToString());
-                    Wybor_Druzyny();
-                }
-                else if (Title == "2/3 Wybór Drużyny")
-                {
-                    ListBox.Margin = new Thickness(61, 60, 471, 109);
-                    ListBox2.Visibility = Visibility.Visible;
-                    Dodaj.Visibility = Visibility.Visible;
-                    Usun.Visibility = Visibility.Visible;
-                    UsunWszystko.Visibility = Visibility.Visible;
-                    Kapitan.Visibility = Visibility.Visible;
-                    Rezerwa.Visibility = Visibility.Visible;
-                    pom_druzyna = Int32.Parse(ListBox.SelectedValue.ToString());
-                    Wybor_Testowy();
-                }
-                else if (Title == "3/3 Wybór Zawodników")
-                {
-                    MessageBox.Show(ListBox.SelectedValue.ToString());
-                }
+                pom_klub = Int32.Parse(ListBox.SelectedValue.ToString());
+                Wybor_Druzyny();
+            }
+            else if (Title == "2/3 Wybór Drużyny" && ListBox.SelectedIndex >= 0)
+            {
+                Wstecz.IsEnabled = true;
+                ListBox.Margin = new Thickness(61, 60, 471, 109);
+                ListBox2.Visibility = Visibility.Visible;
+                Dodaj.Visibility = Visibility.Visible;
+                Usun.Visibility = Visibility.Visible;
+                UsunWszystko.Visibility = Visibility.Visible;
+                Kapitan.Visibility = Visibility.Visible;
+                Rezerwa.Visibility = Visibility.Visible;
+                Aktualizuj.Visibility = Visibility.Visible;
+                pom_druzyna = Int32.Parse(ListBox.SelectedValue.ToString());
+                Wybor_Testowy();
+            }
+            else if (Title == "3/3 Wybór Zawodników" && składy == null && test2.Count != 0)
+            {
+                składy = new Składy();
+                składy.Show();
             }
 
 
@@ -142,6 +143,7 @@ namespace Baza
                 UsunWszystko.Visibility = Visibility.Hidden;
                 Kapitan.Visibility = Visibility.Hidden;
                 Rezerwa.Visibility = Visibility.Hidden;
+                Aktualizuj.Visibility = Visibility.Hidden;
                 Wybor_Druzyny();
             }
         }
@@ -152,10 +154,16 @@ namespace Baza
             {
                 if (t.ID == Int32.Parse(ListBox.SelectedValue.ToString()))
                 {
+                    foreach (Test i in test2)
+                    {
+                        if (t.ID == i.ID)
+                            return;
+                    }
                     test2.Add(t);
+                    
                     if (Kapitan.IsChecked == true)
                     {
-                        test2[test2.Count-1].Kapitan = "C";
+                        test2[test2.Count-1].Kapitan = "(C)";
                     }
                     else
                     {
@@ -169,12 +177,15 @@ namespace Baza
                     {
                         test2[test2.Count - 1].Rezerwowy = null;
                     }
+
+                    //test2.Sort((x, y) => x.Numer_Koszulki.CompareTo(y.Numer_Koszulki));
+                    test2 = test2.OrderBy(p => p.Rezerwowy).ThenBy(p => p.Pozycja != "Bramkarz").ThenBy(p => p.Numer_Koszulki).ToList();
                 }
             }
             
             ListBox2.ItemsSource = null;
             ListBox2.ItemsSource = test2;
-            ListBox2.DisplayMemberPath = "Testowy";
+            ListBox2.DisplayMemberPath = "Testowy2";
         }
 
         private void Usun_Click(object sender, RoutedEventArgs e)
@@ -190,13 +201,54 @@ namespace Baza
 
             ListBox2.ItemsSource = null;
             ListBox2.ItemsSource = test2;
-            ListBox2.DisplayMemberPath = "Testowy";
+            ListBox2.DisplayMemberPath = "Testowy2";
         }
 
         private void UsunWszystko_Click(object sender, RoutedEventArgs e)
         {
             test2 = new List<Test>();
             ListBox2.ItemsSource = test2;
+        }
+
+        private void Rezerwa_Click(object sender, RoutedEventArgs e)
+        {
+            Kapitan.IsChecked = false;
+        }
+
+        private void Kapitan_Click(object sender, RoutedEventArgs e)
+        {
+            Rezerwa.IsChecked = false;
+        }
+
+        private void Aktualizuj_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (Test t in test2)
+            {
+                if (ListBox2.SelectedIndex >= 0)
+                {
+                    if (Kapitan.IsChecked == true)
+                        test2[ListBox2.SelectedIndex].Kapitan = "(C)";
+                    else
+                        test2[ListBox2.SelectedIndex].Kapitan = null;
+
+                    if (Rezerwa.IsChecked == true)
+                        test2[ListBox2.SelectedIndex].Rezerwowy = "R";
+                    else
+                        test2[ListBox2.SelectedIndex].Rezerwowy = null;
+
+                }
+            }
+
+            test2 = test2.OrderBy(p => p.Rezerwowy).ThenBy(p => p.Pozycja != "Bramkarz").ThenBy(p => p.Numer_Koszulki).ToList();
+            ListBox2.ItemsSource = null;
+            ListBox2.ItemsSource = test2;
+            ListBox2.DisplayMemberPath = "Testowy2";
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (składy != null)
+                składy.Close();
         }
     }
 }

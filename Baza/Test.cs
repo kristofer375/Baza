@@ -9,6 +9,7 @@ namespace Baza
     public class Test
     {
         public int ID { get; set; }
+        public int ID_Pozycja { get; set; }
         public string Nazwa { get; set; }
         public int Numer_Koszulki { get; set; }
         public string Nazwisko { get; set; }
@@ -17,11 +18,18 @@ namespace Baza
         public string Kapitan { get; set; }
         public string Rezerwowy { get; set; }
 
-        public string Testowy
+        public string Testowy1
         {
             get
             {
-                return $"{ Nazwisko } { Imie } { Pozycja } { Numer_Koszulki } { Kapitan } { Rezerwowy }";
+                return $"{ Nazwisko } { Imie }";
+            }
+        }
+        public string Testowy2
+        {
+            get
+            {
+                return $"{ Numer_Koszulki } { Nazwisko } { Imie } { Pozycja } { Kapitan } { Rezerwowy }";
             }
         }
     }
