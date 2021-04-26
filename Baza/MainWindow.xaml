@@ -19,7 +19,7 @@
         <Button x:Name="Aktualizuj" Content="Aktualizuj" Margin="360,193,360,190" Visibility="Hidden" Click="Aktualizuj_Click"/>
         <Label x:Name="tytul1" Content="Kandydaci do składu" Margin="61,23,471,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Visibility="Hidden"/>
         <Label x:Name="tytul2" Content="Skład drużyny" Margin="471,23,61,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Visibility="Hidden"/>
-        <ComboBox x:Name="Trenerzy" HorizontalAlignment="Left" Margin="580,100,0,0" VerticalAlignment="Top" Width="180" Visibility="Hidden" SelectedValuePath="Pracownicy"/>
+        <ComboBox x:Name="Trenerzy" HorizontalAlignment="Left" Margin="580,100,0,0" VerticalAlignment="Top" Width="180" Visibility="Hidden" SelectedValuePath="Pracownicy" SelectedIndex="0"/>
 
     </Grid>
 </Window>
