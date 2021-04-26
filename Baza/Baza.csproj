@@ -66,12 +66,12 @@
     </ApplicationDefinition>
     <Compile Include="Druzyna.cs" />
     <Compile Include="Kadra.cs" />
+    <Compile Include="Pracownik.cs" />
     <Compile Include="Składy.xaml.cs">
       <DependentUpon>Składy.xaml</DependentUpon>
     </Compile>
     <Compile Include="SQLiteDataAccess.cs" />
     <Compile Include="Test.cs" />
-    <Compile Include="Zawodnik.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

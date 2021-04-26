@@ -24,15 +24,15 @@ namespace Baza
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<Druzyna>($"select * from Druzyny where ID_Kluby = { a }", new DynamicParameters());
+                var output = cnn.Query<Druzyna>($"select * from Druzyny where ID_Kluby = { a } order by Nazwa", new DynamicParameters());
                 return output.ToList();
             }
         }
-        public static List<Zawodnik> LoadZawodnik(int a)
+        public static List<Pracownik> LoadPracownik(int a)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<Zawodnik>($"select * from Druzyny where ID_Kluby = { a }", new DynamicParameters());
+                var output = cnn.Query<Pracownik>($"select * from Pracownicy where ID_Kluby = { a } and Stanowisko = 'Trener'", new DynamicParameters());
                 return output.ToList();
             }
         }

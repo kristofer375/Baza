@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 
 namespace Baza
 {
-    public class Zawodnik
+    public class Pracownik
     {
         public int ID { get; set; }
-        public string Nazwisko { get; set; }
+        public int ID_Kluby { get; set; }
         public string Imie { get; set; }
-        public string Data_Urodzenia { get; set; }
+        public string Nazwisko { get; set; }
+        public string Stanowisko { get; set; }
 
-        public string Druzyny
+        public string Pracownicy
         {
             get
             {
-                return $"{ Nazwisko }";
+                return $"{ Nazwisko } { Imie }";
             }
         }
     }

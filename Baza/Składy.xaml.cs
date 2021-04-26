@@ -42,6 +42,7 @@ namespace Baza
                 if (t.Rezerwowy == "R")
                     Rezerwa.Content += t.Numer_Koszulki.ToString().PadLeft(4 - t.Numer_Koszulki.ToString().Length, ' ') + $". { t.Nazwisko } { t.Imie } {t.Kapitan}\n";
             }
+            Trener.Content = "Trener - " + ((MainWindow)Application.Current.MainWindow).Trenerzy.SelectedValue;
         }
 
         private void Window_Closed(object sender, EventArgs e)

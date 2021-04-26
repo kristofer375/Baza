@@ -9,9 +9,10 @@
     <Grid Background="#FF00F3FF">
         <Label x:Name="Pierwszy" Content="" Margin="50,95,410,50" FontSize="20"/>
         <Label x:Name="Rezerwa" Content="" Margin="410,95,50,50" FontSize="20"/>
-        <Label x:Name="NazwaDruzyny" Content="Drużyna" Margin="160,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="36" Height="52"/>
+        <Label x:Name="NazwaDruzyny" Content="Drużyna" Margin="160,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="36" Height="64"/>
         <Label x:Name="Tytul1" Content="Pierwszy skład" HorizontalAlignment="Left" Margin="50,52,0,0" VerticalAlignment="Top" Width="340" Height="43" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" FontWeight="Bold"/>
         <Label x:Name="Tytul2" Content="Rezerwowi" HorizontalAlignment="Left" Margin="410,52,0,0" VerticalAlignment="Top" Width="340" Height="43" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" FontWeight="Bold"/>
+        <Label x:Name="Trener" Content="Trener - " Margin="160,386,160,0" VerticalAlignment="Top" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="28" Height="64"/>
 
     </Grid>
 </Window>

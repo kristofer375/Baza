@@ -22,6 +22,7 @@ namespace Baza
     {
         public Składy składy = null;
         List<Klub> kluby = new List<Klub>();
+        List<Pracownik> pracownik = new List<Pracownik>();
         public List<Druzyna> druzyny = new List<Druzyna>();
         List<Test> test = new List<Test>();
         public List<Test> test2 = new List<Test>();
@@ -37,6 +38,10 @@ namespace Baza
         private void LoadKluby()
         {
             kluby = SQLiteDataAccess.LoadKlub();
+        }
+        private void LoadPracownicy(int a)
+        {
+            pracownik = SQLiteDataAccess.LoadPracownik(a);
         }
         private void LoadDruzyny(int a)
         {
@@ -72,6 +77,12 @@ namespace Baza
 
             LoadDruzyny(pom_klub);
 
+            LoadPracownicy(pom_klub);
+            Trenerzy.ItemsSource = null;
+            Trenerzy.ItemsSource = pracownik;
+            Trenerzy.DisplayMemberPath = "Pracownicy";
+            LoadPracownicy(pom_klub);
+
         }
         private void Wybor_Testowy()
         {
@@ -82,8 +93,6 @@ namespace Baza
             ListBox.ItemsSource = null;
             ListBox.ItemsSource = test;
             ListBox.DisplayMemberPath = "Testowy1";
-
-            LoadTest(pom_druzyna);
 
 
         }
@@ -97,6 +106,7 @@ namespace Baza
             {
                 Wstecz.IsEnabled = true;
                 pom_klub = Int32.Parse(ListBox.SelectedValue.ToString());
+                Trenerzy.Visibility = Visibility.Visible;
                 Wybor_Druzyny();
             }
             else if (Title == "2/3 Wybór Drużyny" && ListBox.SelectedIndex >= 0)
@@ -112,13 +122,22 @@ namespace Baza
                 Aktualizuj.Visibility = Visibility.Visible;
                 tytul1.Visibility = Visibility.Visible;
                 tytul2.Visibility = Visibility.Visible;
+                Trenerzy.Visibility = Visibility.Hidden;
                 pom_druzyna = Int32.Parse(ListBox.SelectedValue.ToString());
                 Wybor_Testowy();
             }
-            else if (Title == "3/3 Wybór Zawodników" && składy == null && test2.Count != 0)
+            else if (Title == "3/3 Wybór Zawodników" && test2.Count != 0)
             {
-                składy = new Składy();
-                składy.Show();
+                if (składy != null)
+                {
+                    składy.Close();
+                }
+                else
+                {
+
+                    składy = new Składy();
+                    składy.Show();
+                }
             }
 
 
@@ -132,6 +151,7 @@ namespace Baza
             else if (Title == "2/3 Wybór Drużyny")
             {
                 Wstecz.IsEnabled = false;
+                Trenerzy.Visibility = Visibility.Hidden;
                 Wybor_Klubu();
             }
             else if (Title == "3/3 Wybór Zawodników")
@@ -148,6 +168,7 @@ namespace Baza
                 Aktualizuj.Visibility = Visibility.Hidden;
                 tytul1.Visibility = Visibility.Hidden;
                 tytul2.Visibility = Visibility.Hidden;
+                Trenerzy.Visibility = Visibility.Visible;
                 Wybor_Druzyny();
             }
         }
