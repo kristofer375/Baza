@@ -4,15 +4,15 @@
 winexe
 C#
 .cs
-C:\Users\Krzysztof\source\repos\Baza\Baza\obj\Debug\
+C:\Users\Krzysztof\source\repos\Baza\Baza\obj\Release\
 Baza
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\Krzysztof\source\repos\Baza\Baza\App.xaml
 2178586109
 11110298293
-13556403272
+13321183807
 161459134356
 MainWindow.xaml;Składy.xaml;
 

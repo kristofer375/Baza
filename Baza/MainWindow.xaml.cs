@@ -81,6 +81,7 @@ namespace Baza
             Trenerzy.ItemsSource = null;
             Trenerzy.ItemsSource = pracownik;
             Trenerzy.DisplayMemberPath = "Pracownicy";
+            Trenerzy.SelectedIndex = 0;
             LoadPracownicy(pom_klub);
 
         }
@@ -130,11 +131,24 @@ namespace Baza
             {
                 if (składy != null)
                 {
+                    //Wstecz.IsEnabled = true;
+                    //Dodaj.IsEnabled = true;
+                    //Aktualizuj.IsEnabled = true;
+                    //Usun.IsEnabled = true;
+                    //UsunWszystko.IsEnabled = true;
+                    //Kapitan.IsEnabled = true;
+                    //Rezerwa.IsEnabled = true;
                     składy.Close();
                 }
                 else
                 {
-
+                    //Wstecz.IsEnabled = false;
+                    //Dodaj.IsEnabled = false;
+                    //Aktualizuj.IsEnabled = false;
+                    //Usun.IsEnabled = false;
+                    //UsunWszystko.IsEnabled = false;
+                    //Kapitan.IsEnabled = false;
+                    //Rezerwa.IsEnabled = false;
                     składy = new Składy();
                     składy.Show();
                 }
