@@ -20,6 +20,16 @@
         <Label x:Name="tytul1" Content="Kandydaci do składu" Margin="61,23,471,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Visibility="Hidden"/>
         <Label x:Name="tytul2" Content="Skład drużyny" Margin="471,23,61,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Visibility="Hidden"/>
         <ComboBox x:Name="Trenerzy" HorizontalAlignment="Left" Margin="580,100,0,0" VerticalAlignment="Top" Width="180" Visibility="Hidden" SelectedValuePath="Pracownicy" SelectedIndex="0"/>
+        <DataGrid x:Name="tabelka" ItemsSource="{Binding Path=test, Mode=TwoWay}" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="23,293,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nr" Binding="{Binding Path=Numer_Koszulki}"/>
+                <DataGridTextColumn Header="Nazwisko" Binding="{Binding Path=Nazwisko}"/>
+                <DataGridTextColumn Header="Imię" Binding="{Binding Path=Imie}"/>
+                <DataGridTextColumn Header="Pozycja" Binding="{Binding Path=Pozycja}"/>
+                <DataGridCheckBoxColumn Header="Kapitan" Binding="{Binding Path=IsKapitan}"/>
+                <DataGridCheckBoxColumn Header="Rezerwowy" Binding="{Binding Path=IsRezerwowy}"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Window>

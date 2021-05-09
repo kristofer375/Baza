@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -30,8 +32,10 @@ namespace Baza
         public int pom_druzyna;
         public MainWindow()
         {
+            DataContext = this;
             InitializeComponent();
 
+            
             Wybor_Klubu();
         }
        
@@ -93,14 +97,12 @@ namespace Baza
 
             ListBox.ItemsSource = null;
             ListBox.ItemsSource = test;
+            tabelka.ItemsSource = test;
             ListBox.DisplayMemberPath = "Testowy1";
 
 
         }
-        private void Wybor_Zawodnikow()
-        {
-            Title = "3/3 Wybór Zawodników";
-        }
+        
         private void Dalej_Click(object sender, RoutedEventArgs e)
         {
             if (Title == "1/3 Wybór Klubu" && ListBox.SelectedIndex >= 0)
