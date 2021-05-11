@@ -32,15 +32,19 @@ namespace Baza
                     break;
                 }
             }
-            foreach (Test t in ((MainWindow)Application.Current.MainWindow).test2)
+            foreach (Test t in ((MainWindow)Application.Current.MainWindow).test)
             {
-                if (t.Rezerwowy != "R")
-                    Pierwszy.Content += t.Numer_Koszulki.ToString().PadLeft(4 - t.Numer_Koszulki.ToString().Length, ' ') + $". { t.Nazwisko } { t.Imie } {t.Kapitan}\n"; 
-            }
-            foreach (Test t in ((MainWindow)Application.Current.MainWindow).test2)
-            {
-                if (t.Rezerwowy == "R")
-                    Rezerwa.Content += t.Numer_Koszulki.ToString().PadLeft(4 - t.Numer_Koszulki.ToString().Length, ' ') + $". { t.Nazwisko } { t.Imie } {t.Kapitan}\n";
+                if (t.CzyGra == true)
+                {
+                    if (t.CzyRezerwowy == false)
+                    {
+                        Pierwszy.Content += t.Numer_Koszulki.ToString().PadLeft(4 - t.Numer_Koszulki.ToString().Length, ' ') + $". { t.Nazwisko } { t.Imie } {(t.CzyKapitan ? "(C)" : "")}\n";
+                    }
+                    else
+                    {
+                        Rezerwa.Content += t.Numer_Koszulki.ToString().PadLeft(4 - t.Numer_Koszulki.ToString().Length, ' ') + $". { t.Nazwisko } { t.Imie }\n";
+                    }
+                }
             }
             Trener.Content = "\n\n\n\n\n\n\n\n\n\nTrener - " + ((MainWindow)Application.Current.MainWindow).Trenerzy.SelectedValue;
         }

@@ -16,9 +16,10 @@ namespace Baza
         public string Imie { get; set; }
         public string Pozycja { get; set; }
         public string Kapitan { get; set; }
-        public bool IsKapitan { get; set; }
+        public bool CzyKapitan { get; set; }
         public string Rezerwowy { get; set; }
-        public bool IsRezerwowy { get; set; }
+        public bool CzyRezerwowy { get; set; }
+        public bool CzyGra { get; set; }
 
         public string Testowy1
         {

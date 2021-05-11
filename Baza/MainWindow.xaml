@@ -8,26 +8,19 @@
         Title="MainWindow" Height="450" Width="800" ResizeMode="CanMinimize" Closing="Window_Closing">
     <Grid>
         <ListBox x:Name="ListBox" Margin="241,60,241,109"/>
-        <Button x:Name="Dalej" Content="Dalej" HorizontalAlignment="Left" Margin="516,351,0,0" VerticalAlignment="Top" Width="138" Height="42" Click="Dalej_Click"/>
-        <Button x:Name="Wstecz" Content="Wstecz" HorizontalAlignment="Left" Margin="151,351,0,0" VerticalAlignment="Top" Width="138" Height="42" Click="Wstecz_Click" IsEnabled="False"/>
-        <ListBox x:Name="ListBox2" Margin="471,60,61,109" Visibility="Hidden"/>
-        <Button x:Name="Dodaj" Content="Dodaj" Margin="365,100,365,283" Visibility="Hidden" Click="Dodaj_Click"/>
-        <Button x:Name="Usun" Content="Usuń" Margin="365,255,365,128" Visibility="Hidden" Click="Usun_Click"/>
-        <Button x:Name="UsunWszystko" Content="Usuń Wszystko" Margin="350,312,350,71" Visibility="Hidden" Click="UsunWszystko_Click"/>
-        <CheckBox x:Name="Kapitan" Content="Kapitan" Margin="360,143,360,253" Visibility="Hidden" Click="Kapitan_Click"/>
-        <CheckBox x:Name="Rezerwa" Content="Rezerwowy" Margin="350,163,350,218" Visibility="Hidden" Click="Rezerwa_Click"/>
-        <Button x:Name="Aktualizuj" Content="Aktualizuj" Margin="360,193,360,190" Visibility="Hidden" Click="Aktualizuj_Click"/>
-        <Label x:Name="tytul1" Content="Kandydaci do składu" Margin="61,23,471,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Visibility="Hidden"/>
-        <Label x:Name="tytul2" Content="Skład drużyny" Margin="471,23,61,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Visibility="Hidden"/>
+        <Button x:Name="Dalej" Content="Dalej" Margin="505,351,151,0" VerticalAlignment="Top" Height="42" Click="Dalej_Click"/>
+        <Button x:Name="Wstecz" Content="Wstecz" Margin="151,351,505,0" VerticalAlignment="Top" Height="42" Click="Wstecz_Click" IsEnabled="False"/>
+
         <ComboBox x:Name="Trenerzy" HorizontalAlignment="Left" Margin="580,100,0,0" VerticalAlignment="Top" Width="180" Visibility="Hidden" SelectedValuePath="Pracownicy" SelectedIndex="0"/>
-        <DataGrid x:Name="tabelka" ItemsSource="{Binding Path=test, Mode=TwoWay}" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="23,293,0,0">
+        <DataGrid x:Name="tabelka" Visibility="Hidden" ItemsSource="{Binding Path=test, Mode=TwoWay}" CanUserAddRows="False" AutoGenerateColumns="False" Margin="151,60,151,109">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Nr" Binding="{Binding Path=Numer_Koszulki}"/>
-                <DataGridTextColumn Header="Nazwisko" Binding="{Binding Path=Nazwisko}"/>
-                <DataGridTextColumn Header="Imię" Binding="{Binding Path=Imie}"/>
-                <DataGridTextColumn Header="Pozycja" Binding="{Binding Path=Pozycja}"/>
-                <DataGridCheckBoxColumn Header="Kapitan" Binding="{Binding Path=IsKapitan}"/>
-                <DataGridCheckBoxColumn Header="Rezerwowy" Binding="{Binding Path=IsRezerwowy}"/>
+                <DataGridCheckBoxColumn Header="✓" Binding="{Binding Path=CzyGra}" Width="auto"/>
+                <DataGridTextColumn Header="Nr" Binding="{Binding Path=Numer_Koszulki}" Width="auto"/>
+                <DataGridTextColumn Header="Nazwisko" Binding="{Binding Path=Nazwisko}" Width="*"/>
+                <DataGridTextColumn Header="Imię" Binding="{Binding Path=Imie}" Width="*"/>
+                <DataGridTextColumn Header="Pozycja" Binding="{Binding Path=Pozycja}" Width="*"/>
+                <DataGridCheckBoxColumn Header="Kapitan" Binding="{Binding Path=CzyKapitan}" Width="auto"/>
+                <DataGridCheckBoxColumn Header="Rezerwowy" Binding="{Binding Path=CzyRezerwowy}" Width="auto"/>
             </DataGrid.Columns>
         </DataGrid>
 
